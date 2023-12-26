@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sponsorship Team - Taarangana</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Welcome to the Sponsorship Team Page</h1>
+    </header>
+
+    <main class="main-content">
+        <section class="sponsors">
+            <h2>Our Sponsors</h2>
+            <!-- Add sponsor information here -->
+            <div class="sponsor">
+                <img src="sponsor1.png" alt="Sponsor 1">
+                <p>Sponsor 1 Description</p>
+            </div>
+            <div class="sponsor">
+                <img src="sponsor2.png" alt="Sponsor 2">
+                <p>Sponsor 2 Description</p>
+            </div>
+            <!-- Add more sponsors as needed -->
+        </section>
+
+        <!-- Other content related to the sponsorship team -->
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Tarrangana'24</p>
+    </footer>
+</body>
+</html>
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.sponsors {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.sponsor {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sponsor img {
+    width: 200px; 
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 5px;
+}
+
+
