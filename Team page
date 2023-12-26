@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Team</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Taarangana IGDTUW 2024</h1>
+        <h2>Our Team</h2>
+    </header>
+
+    <main class="main-content">
+        <section class="team-section">
+            <h3 class="team-title">Web Development Team</h3>
+            <div class="team-members">
+                <!-- Add Web Development Team members -->
+                <div class="member">Member 1</div>
+                <div class="member">Member 2</div>
+                <!-- Add more members as needed -->
+            </div>
+        </section>
+
+        <!-- Repeat the structure for other teams -->
+        <!-- HR Team, PR Team, Sponsorship Team, Editorial Team, EM Team, Creative Team, Media Team -->
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Taarangana IGDTUW</p>
+    </footer>
+</body>
+</html>
+
+
+/* Basic reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.team-section {
+    margin-bottom: 30px;
+}
+
+.team-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.member {
+    width: 150px;
+    height: 150px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 150px;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.member:hover {
+    transform: scale(1.1);
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+}
