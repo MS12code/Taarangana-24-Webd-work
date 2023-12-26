@@ -1,0 +1,107 @@
+<div style="width: 900px; margin-left: auto; margin-right: auto;">
+  <div style="text-align: center; width: 650px;">
+    <span style="border-bottom: 1px solid #dfdff9;">ARCADE GAME OPERATOR MENU</span><br/><br/>
+    &lt; Use Arrow Keys &gt;
+  </div>
+  <br/><br/><br/>
+  <table id="options_table">
+  </table>
+</div>
+
+body {
+  background-color: #111111;
+  color: #dfdff9;
+  font-family: "Press Start 2P", sans-serif;
+  text-shadow: 0 0 3px #dfdff9;
+}
+
+.cursor {
+  width: 40px;
+  text-align: center;
+}
+
+.selected td {
+  color: #fff0c0;
+  text-shadow: 0 0 3px #fff0c0;
+}
+
+.item {
+  width: 400px;
+}
+
+var options = {
+  title: 'ARCADE GAME OPERATOR MENU',
+  items: [
+    {label: 'Difficulty', choices:[
+      'Easy', 'Medium', 'Hard', 'Very Hard'
+    ], selected: 1},
+    {label: 'Coinage', choices:[
+      '1 Coin 1 Credit', '2 Coins 1 Credit', '3 Coins 1 Credit',
+      '4 Coins 1 Credit'
+    ], selected: 0},
+    {label: 'Extra Player', choices:[
+      '1,000 Pts', '2,000 Pts', '3,000 Pts', '8,000 Pts',
+      '99,000 Pts', 'None'
+    ], selected: 0},
+    {label: 'Allow Continue', choices:[
+      'Yes', 'No'
+    ], selected: 0}
+  ]
+};
+
+function createMenu () {
+  $.each(options.items, function(itemInd, item){
+    var theClass = '';
+    var theCursor = '';
+    if (itemInd == 0) {
+      theClass = 'selected';
+      theCursor = '>';
+    }
+    $('#options_table').append('<tr class="'+theClass+'"><td class="cursor">'+theCursor+'</td><td class="item">'+item.label+'</td><td class="value">'+item.choices[item.selected]+'</td></tr>')
+    //$.each(item.choices, function(choiceInd, choice){
+    //});
+  });
+}
+createMenu();
+
+var cursorPos = 0;
+document.addEventListener('keydown', function(e){
+  var itemCount = $('#options_table tr').length;
+  if (e.keyCode == 38) {
+    --cursorPos;
+  }
+  if (e.keyCode == 40) {
+    ++cursorPos;
+  }
+  if (e.keyCode == 37) {
+    options.items[cursorPos].selected -= 1;
+    if (options.items[cursorPos].selected < 0) {
+      options.items[cursorPos].selected = options.items[cursorPos].choices.length - 1;
+    }
+  }
+  if (e.keyCode == 39) {
+    options.items[cursorPos].selected += 1;
+    if (options.items[cursorPos].selected >= options.items[cursorPos].choices.length) {
+      options.items[cursorPos].selected = 0;
+    }
+  }
+  var currentItem = options.items[cursorPos];
+  $($('#options_table tr')[cursorPos]).children('.value').html(currentItem.choices[currentItem.selected]);
+  
+  if (cursorPos < 0) {
+    cursorPos = itemCount-1;
+  }
+  if (cursorPos >= itemCount) {
+    cursorPos = 0;
+  }
+  
+  $('#options_table tr').each(function(ind, el){
+    if (ind == cursorPos) {
+      $(el).addClass('selected');
+      $(el).children('td.cursor').html('>');
+    } else {
+      $(el).removeClass('selected');
+      $(el).children('td.cursor').html('');
+    }
+  });
+});
