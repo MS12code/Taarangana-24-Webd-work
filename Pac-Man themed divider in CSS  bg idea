@@ -1,0 +1,69 @@
+<div class="pacman-divider">
+    <div class="pacman"></div>
+    <div class="dots"></div>
+</div>
+
+
+.pacman-divider {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.pacman {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    border-top: 75px solid yellow;
+    border-right: 75px solid yellow;
+    border-bottom: 75px solid yellow;
+    background-color: transparent;
+    transform: rotate(-45deg);
+    position: absolute;
+}
+
+
+.pacman::after {
+    content: '';
+    width: 37.5px;
+    height: 75px;
+    background-color: #000;
+    position: absolute;
+    border-radius: 0 75px 75px 0;
+    transform-origin: top right;
+    transform: rotate(45deg);
+    top: 0;
+    right: 0;
+}
+
+
+.dots {
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffcc00;
+}
+
+
+.pacman-divider:hover .pacman::after {
+    animation: close-mouth 0.3s ease-in-out forwards;
+}
+
+@keyframes close-mouth {
+    0%, 100% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+}
