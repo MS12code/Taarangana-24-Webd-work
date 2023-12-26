@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arcade Theme Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="arcade-header">
+        <h1>Welcome to the Arcade!</h1>
+    </header>
+
+    <main class="arcade-main">
+        <section class="games">
+            <h2>Featured Games</h2>
+            <div class="game">
+                <img src="game1.jpg" alt="Game 1">
+                <h3>Game 1</h3>
+            </div>
+            <div class="game">
+                <img src="game2.jpg" alt="Game 2">
+                <h3>Game 2</h3>
+            </div>
+            <!-- Add more games as needed -->
+        </section>
+    </main>
+
+    <footer class="arcade-footer">
+        <p>&copy; 2023 Arcade Theme</p>
+    </footer>
+</body>
+</html>
+
+
+
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Arcade theme styles */
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #000;
+    color: #fff;
+}
+
+.arcade-header {
+    text-align: center;
+    padding: 40px;
+    background-color: #FFD700; /* Yellow */
+}
+
+.arcade-header h1 {
+    font-size: 48px;
+    text-shadow: 3px 3px 5px #000;
+}
+
+.arcade-main {
+    padding: 40px;
+}
+
+.games {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.game {
+    margin: 20px;
+    text-align: center;
+}
+
+.game img {
+    width: 200px;
+    height: 200px;
+    border: 5px solid #FFD700; /* Yellow */
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.game img:hover {
+    transform: scale(1.1);
+}
+
+.arcade-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #FFD700; /* Yellow */
+}
