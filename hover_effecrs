@@ -1,0 +1,129 @@
+<div class="banner">
+  <div class="inner">
+    <h1>Travelandia</h1>
+  </div>
+</div>
+
+
+
+
+
+<a href="https://www.youtube.com/watch?v=vzs0lR4QvcQ" target="_blank" title="Watch me speed code this" style="position: fixed; bottom: 10px; right: 10px"><img src="http://co0kie.github.io/codepen/youtube.png" alt=""></a>
+
+  :root{
+  --img: linear-gradient(120deg, rgba(246,211,101,0.51) 0%, rgba(253,160,133,0.74) 100%), url(https://images.unsplash.com/photo-1552579970-2fc7cb38a3d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80);
+  --br: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+  --bb: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  --bl: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+  --bt: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+  --p: 20px;
+  --bw: 2px;
+  --t: 1s;
+  --td: 200ms;
+  --te: ease-out;
+}
+body{
+  height: 100vh;
+  display: flex;
+  background-color: blanchedalmond;
+}
+.banner{
+  --w: 720px;
+  --h: 200px;
+  max-width: var(--w);
+  width: 100%;
+  margin: auto;
+  height: var(--h);
+  background-image: var(--img);
+  background-size: var(--w);
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-size var(--t);
+  position: relative;
+  box-shadow: 0 30px 30px -20px rgba(0,0,0,0.45);
+  .inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    > h1{
+      position: relative;
+      font-family: serif;
+      color: white;
+      letter-spacing: .4em;
+      text-transform: uppercase;
+      font-size: 1em;
+      transition: var(--td);
+      @media (min-width: 480px){
+        font-size: 2em;
+      }
+      @media (min-width: 768px){
+        font-size: 3em;
+      }
+    }
+  }
+  .inner::before,
+  .inner::after,
+  &::after,
+  &::before{
+    content: '';
+    position: absolute;
+  }
+  &::before{
+    top: var(--p);
+    right: var(--p);
+    height: 0;
+    width: var(--bw);
+    background-image: var(--br);
+    transition: height var(--td) var(--te) .75s;
+  }
+  &::after{
+    bottom: var(--p);
+    right: var(--p);
+    width: 0;
+    height: var(--bw);
+    background-image: var(--bb);
+    transition: width var(--td) var(--te) .5s;
+  }
+  .inner{
+    &::before{
+      bottom: var(--p);
+      left: var(--p);
+      height: 0;
+      width: var(--bw);
+      background-image: var(--bl);
+      transition: height var(--td) var(--te) .25s;
+    }
+    &::after{
+      top: var(--p);
+      left: var(--p);
+      height: var(--bw);
+      width: 0;
+      background-image: var(--bt);
+      transition: width var(--td) var(--te) 0s;
+    }
+  }
+  &:hover{
+    &::before{
+      height: calc(var(--h) - var(--p) * 2);
+      transition: height var(--td) var(--te) 0s;
+    }
+    &::after{
+      width: calc(100% - var(--p) * 2);
+      transition: width var(--td) var(--te) .25s;
+    }
+    .inner{
+      &::before{
+        height: calc(var(--h) - var(--p) * 2);
+        transition: height var(--td) var(--te) .5s;
+      }
+      &::after{
+        width: calc(100% - var(--p) * 2);
+        transition: width var(--td) var(--te) .75s;
+      }
+    }
+    @media(min-width: 768px){
+      background-size: 760px;
+    }
+  }
+}
